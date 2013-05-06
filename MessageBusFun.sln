@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFun", "MessageBusFun\MessageBusFun.csproj", "{AC874488-C279-49E8-9205-6CD6BCEA1AE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFun.Core", "src\MessageBusFun.Core\MessageBusFun.Core.csproj", "{AC874488-C279-49E8-9205-6CD6BCEA1AE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFunTests", "MessageBusFunTests\MessageBusFunTests.csproj", "{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFun.Core.Tests", "test\MessageBusFun.Core.Tests\MessageBusFun.Core.Tests.csproj", "{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
