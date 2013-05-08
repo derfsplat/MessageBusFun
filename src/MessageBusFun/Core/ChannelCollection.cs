@@ -61,7 +61,7 @@ namespace MessageBusFun.Core
 
         public IChannel ChannelForProvider(IProvider provider)
         {
-            return Channels.SingleOrDefault(x => x.Providers.Contains(provider));
+            return Channels.SingleOrDefault(x => x.IsProviderRegistered(provider));
         }
 
         public IEnumerable<IProvider> ProvidersForChannelWithName(string name)
@@ -69,9 +69,9 @@ namespace MessageBusFun.Core
             return ChannelNames[name].Providers.AsEnumerable();
         }
 
-        public IEnumerable<string> Names()
+        public IEnumerable<string> Names
         {
-            return ChannelNames.Keys.AsEnumerable();
+            get { return Channels.Where(x => x.HasProviders).Select(x => x.Name); }
         }
     }
 }

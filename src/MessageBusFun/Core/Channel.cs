@@ -24,19 +24,53 @@ namespace MessageBusFun.Core
 
         public string Name { get; private set; }
 
-        public void SendMessage(IProvider provider)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void RegisterProvider(IProvider provider)
         {
-            throw new System.NotImplementedException();
+            _providers.Add(provider);
         }
 
-        public void RegisterSubscriber(ISubscriber provider)
+        public void DeregisterProvider(IProvider provider)
         {
-            throw new System.NotImplementedException();
+            if (_providers.Contains(provider))
+            {
+                _providers.Remove(provider);
+            }
+        }
+
+        public void RegisterSubscriber(ISubscriber subscriber)
+        {
+            _subscribers.Add(subscriber);
+        }
+
+        public void DeregisterSubscriber(ISubscriber subscriber)
+        {
+            _subscribers.Remove(subscriber);
+        }
+
+        public void SendMessage(IProvider provider)
+        {
+            if (IsProviderRegistered(provider))
+            {
+                SendMessageToSubscribers(provider.Message);
+            }
+        }
+
+        private void SendMessageToSubscribers(IMessage message)
+        {
+            foreach (var subscriber in Subscribers)
+            {
+                subscriber.HandleMessage(message);
+            }
+        }
+
+        public bool IsProviderRegistered(IProvider provider)
+        {
+            return _providers.Contains(provider);
+        }
+
+        public bool HasProviders
+        {
+            get { return _providers.Any(); }
         }
     }
 }

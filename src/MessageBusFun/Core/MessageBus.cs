@@ -13,7 +13,7 @@ namespace MessageBusFun.Core
 
         public MessageBus() : this(new ChannelCollection()) {}
 
-        public IEnumerable<string> Channels { get { return _channels.Names(); } }
+        public IEnumerable<string> Channels { get { return _channels.Names; } }
 
         public void RegisterProvider(IProvider provider, string channelName)
         {

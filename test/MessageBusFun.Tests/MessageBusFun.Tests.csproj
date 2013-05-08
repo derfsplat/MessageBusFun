@@ -50,7 +50,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\MessageBusFun.Core\MessageBusFun.csproj">
+    <ProjectReference Include="..\..\src\MessageBusFun\MessageBusFun.csproj">
       <Project>{AC874488-C279-49E8-9205-6CD6BCEA1AE9}</Project>
       <Name>MessageBusFun</Name>
     </ProjectReference>
