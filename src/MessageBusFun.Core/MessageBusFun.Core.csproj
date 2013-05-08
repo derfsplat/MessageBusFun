@@ -34,8 +34,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChannelProviderCollection.cs" />
+    <Compile Include="IChannelProviderCollection.cs" />
+    <Compile Include="IMessage.cs" />
+    <Compile Include="IMessageBus.cs" />
+    <Compile Include="IMessageBusFactory.cs" />
+    <Compile Include="IProvider.cs" />
+    <Compile Include="MessageBus.cs" />
+    <Compile Include="MessageBusFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
