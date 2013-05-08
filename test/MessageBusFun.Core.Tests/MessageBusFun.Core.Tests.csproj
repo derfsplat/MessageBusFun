@@ -7,8 +7,8 @@
     <ProjectGuid>{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MessageBusFunTests</RootNamespace>
-    <AssemblyName>MessageBusFunTests</AssemblyName>
+    <RootNamespace>MessageBusFun.Core.Tests</RootNamespace>
+    <AssemblyName>MessageBusFun.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
