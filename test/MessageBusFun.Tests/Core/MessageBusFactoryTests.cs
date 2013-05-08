@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using MessageBusFun.Core;
+using NUnit.Framework;
 
-namespace MessageBusFun.Core.Tests
+namespace MessageBusFun.Tests.Core
 {
     [TestFixture]
     public class MessageBusFactoryTests

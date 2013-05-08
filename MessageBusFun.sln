@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFun.Core", "src\MessageBusFun.Core\MessageBusFun.Core.csproj", "{AC874488-C279-49E8-9205-6CD6BCEA1AE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFun", "src\MessageBusFun\MessageBusFun.csproj", "{AC874488-C279-49E8-9205-6CD6BCEA1AE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFun.Core.Tests", "test\MessageBusFun.Core.Tests\MessageBusFun.Core.Tests.csproj", "{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFun.Tests", "test\MessageBusFun.Tests\MessageBusFun.Tests.csproj", "{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBusFun.IntegrationTests", "test\MessageBusFun.IntegrationTests\MessageBusFun.IntegrationTests.csproj", "{70D7AE3B-DD9C-4C60-8919-C3BC266795A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D7AE3B-DD9C-4C60-8919-C3BC266795A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D7AE3B-DD9C-4C60-8919-C3BC266795A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D7AE3B-DD9C-4C60-8919-C3BC266795A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D7AE3B-DD9C-4C60-8919-C3BC266795A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

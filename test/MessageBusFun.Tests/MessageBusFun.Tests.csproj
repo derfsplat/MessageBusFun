@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AC874488-C279-49E8-9205-6CD6BCEA1AE9}</ProjectGuid>
+    <ProjectGuid>{0665E9F7-6318-4D30-B2A2-12EB2DCF9423}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MessageBusFun.Core</RootNamespace>
-    <AssemblyName>MessageBusFun.Core</AssemblyName>
+    <RootNamespace>MessageBusFun.Tests</RootNamespace>
+    <AssemblyName>MessageBusFun.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,21 +30,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChannelProviderCollection.cs" />
-    <Compile Include="IChannelProviderCollection.cs" />
-    <Compile Include="IMessage.cs" />
-    <Compile Include="IMessageBus.cs" />
-    <Compile Include="IMessageBusFactory.cs" />
-    <Compile Include="IProvider.cs" />
-    <Compile Include="MessageBus.cs" />
-    <Compile Include="MessageBusFactory.cs" />
+    <Compile Include="Core\ChannelsCollectionTests.cs" />
+    <Compile Include="Core\ChannelTests.cs" />
+    <Compile Include="Core\MessageBusFactoryTests.cs" />
+    <Compile Include="Core\MessageBusTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MessageBusFun.Core\MessageBusFun.csproj">
+      <Project>{AC874488-C279-49E8-9205-6CD6BCEA1AE9}</Project>
+      <Name>MessageBusFun</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

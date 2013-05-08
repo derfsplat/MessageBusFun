@@ -1,7 +1,8 @@
-﻿using Moq;
+﻿using MessageBusFun.Core;
+using Moq;
 using NUnit.Framework;
 
-namespace MessageBusFun.Core.Tests
+namespace MessageBusFun.Tests.Core
 {
     [TestFixture]
     public class MessageBusTests
@@ -20,12 +21,12 @@ namespace MessageBusFun.Core.Tests
             var provider = Mock.Of<IProvider>();
             const string channelName = "test";
 
-            var channelsMock = new Mock<IChannelProviderCollection>();
+            var channelsMock = new Mock<IChannelCollection>();
             var messageBus = new MessageBus(channelsMock.Object);
 
             messageBus.RegisterProvider(channelName: channelName, provider: provider);
             
-            channelsMock.Verify(x => x.Add(channelName, provider));
+            channelsMock.Verify(x => x.AddProvider(channelName, provider));
         }
 
         [Test]

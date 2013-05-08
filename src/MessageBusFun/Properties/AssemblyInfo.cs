@@ -36,5 +36,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // Unit Test assemblies
-[assembly: InternalsVisibleTo("MessageBusFun.Core.Tests"),
+[assembly: InternalsVisibleTo("MessageBusFun.Tests"),
            InternalsVisibleTo("DynamicProxyGenAssembly2")]

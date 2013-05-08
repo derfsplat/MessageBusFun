@@ -1,4 +1,4 @@
-namespace MessageBusFun.Core
+namespace MessageBusFun
 {
     public interface IMessageBusFactory
     {
