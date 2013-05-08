@@ -72,17 +72,16 @@ namespace MessageBusFun.Tests.Core
         }
 
         [Test]
-        public void AddProvider_GivenNewChannelNameAndExistingProvider_WillThrowException()
+        public void AddProvider_GivenNewChannelNameAndExistingProvider_WillNotAddChannel()
         {
             const string channelName1 = "test1";
             const string channelName2 = "test2";
             var provider = Mock.Of<IProvider>();
 
             _channels.AddProvider(name: channelName1, provider: provider);
-            TestDelegate addSecondChannel = () =>
-                _channels.AddProvider(name: channelName2, provider: provider);
+            _channels.AddProvider(name: channelName2, provider: provider);
 
-            Assert.That(addSecondChannel, Throws.Exception);
+            _channelFactoryMock.Verify(x => x.CreateWithProvider(channelName2, provider), Times.Never());
         }
 
         [Test]

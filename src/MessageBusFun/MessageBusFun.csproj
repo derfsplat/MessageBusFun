@@ -46,7 +46,7 @@
     <Compile Include="IProvider.cs" />
     <Compile Include="ISubscriber.cs" />
     <Compile Include="Core\MessageBus.cs" />
-    <Compile Include="Core\MessageBusFactory.cs" />
+    <Compile Include="MessageBusFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

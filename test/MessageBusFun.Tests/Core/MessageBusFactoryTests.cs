@@ -6,7 +6,6 @@ namespace MessageBusFun.Tests.Core
     [TestFixture]
     public class MessageBusFactoryTests
     {
-
         [Test]
         public void Create_ReturnsIMessageBus()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MessageBusFun.Core;
 using Moq;
 using NUnit.Framework;
@@ -12,13 +13,15 @@ namespace MessageBusFun.Tests.Core
         private IChannel _channel;
         private HashSet<IProvider> _providers;
         private HashSet<ISubscriber> _subscribers;
+        private string _channelName;
 
         [SetUp]
         public void SetUp()
         {
             _providers = new HashSet<IProvider>();
             _subscribers = new HashSet<ISubscriber>();
-            _channel = new Channel(name: "name",
+            _channelName = "name";
+            _channel = new Channel(name: _channelName,
                                    provider: Mock.Of<IProvider>(),
                                    providers: _providers,
                                    subscribers: _subscribers);
@@ -66,6 +69,24 @@ namespace MessageBusFun.Tests.Core
             _channel.DeregisterProvider(provider);
 
             Assert.That(_providers, Has.None.EqualTo(provider));
+        }
+
+        [Test]
+        public void DeregisterProvider_WhenRemovingTheLastProvider_WillCallChannelUnavailableHandlerForSubscribers()
+        {
+            var provider = _providers.Single();
+
+            var subscriberMocks = new[]
+                {
+                    new Mock<ISubscriber>(),
+                    new Mock<ISubscriber>()
+                };
+
+            Array.ForEach(subscriberMocks, s => _subscribers.Add(s.Object));
+
+            _channel.DeregisterProvider(provider);
+
+            Array.ForEach(subscriberMocks, s => s.Verify(x => x.HandleChannelUnavailable(_channelName)));
         }
 
         [Test]

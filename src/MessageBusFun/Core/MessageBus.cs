@@ -20,15 +20,40 @@ namespace MessageBusFun.Core
             _channels.AddProvider(channelName, provider);
         }
 
-        public void Publish(IProvider provider)
+        public void DeregisterProvider(IProvider provider)
         {
-            _channels.ChannelForProvider(provider);
+            var channel = _channels.ChannelForProvider(provider);
+            if (channel != null)
+            {
+                channel.DeregisterProvider(provider);
+            }
         }
 
-        public void DeregisterProvider(IProvider provider) { }
+        public void RegisterSubscriber(ISubscriber subscriber, string channelName)
+        {
+            var channel = _channels.ChannelWithName(channelName);
+            if (channel != null)
+            {
+                channel.RegisterSubscriber(subscriber);
+            }
+        }
 
-        public void RegisterSubscriber(ISubscriber subscriber, string channelName) {}
+        public void DeregisterSubscriber(ISubscriber subscriber, string channelName)
+        {
+            var channel = _channels.ChannelWithName(channelName);
+            if (channel != null)
+            {
+                channel.DeregisterSubscriber(subscriber);
+            }
+        }
 
-        public void DeregisterSubscriber(ISubscriber subscriber, string channelName) {}
+        public void Publish(IProvider provider)
+        {
+            var channel = _channels.ChannelForProvider(provider);
+            if (channel != null)
+            {
+                channel.SendMessage(provider);
+            }
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace MessageBusFun.Core
+﻿using MessageBusFun.Core;
+
+namespace MessageBusFun
 {
     public class MessageBusFactory : IMessageBusFactory
     {

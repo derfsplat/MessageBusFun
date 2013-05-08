@@ -34,6 +34,11 @@ namespace MessageBusFun.Core
             if (_providers.Contains(provider))
             {
                 _providers.Remove(provider);
+
+                if (!(_providers.Any()))
+                {
+                    SendChannelUnavailableToSubscribers();
+                }
             }
         }
 
@@ -60,6 +65,14 @@ namespace MessageBusFun.Core
             foreach (var subscriber in Subscribers)
             {
                 subscriber.HandleMessage(message);
+            }
+        }
+
+        private void SendChannelUnavailableToSubscribers()
+        {
+            foreach (var subscriber in Subscribers)
+            {
+                subscriber.HandleChannelUnavailable(Name);
             }
         }
 

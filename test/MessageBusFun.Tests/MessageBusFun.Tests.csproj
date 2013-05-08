@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ChannelFactoryTests.cs" />
     <Compile Include="Core\ChannelsCollectionTests.cs" />
     <Compile Include="Core\ChannelTests.cs" />
     <Compile Include="Core\MessageBusFactoryTests.cs" />

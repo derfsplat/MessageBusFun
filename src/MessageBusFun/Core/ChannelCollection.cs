@@ -27,9 +27,10 @@ namespace MessageBusFun.Core
 
         public void AddProvider(string name, IProvider provider)
         {
-            ThrowWhenProviderExistsWithDifferentChannel(name: name, provider: provider);
-
-            AddProviderToChannel(name, provider);
+            if (ProviderDoesNotExistForDifferentChannel(name: name, provider: provider))
+            {
+                AddProviderToChannel(name, provider);
+            }
         }
 
         private void AddProviderToChannel(string name, IProvider provider)
@@ -50,13 +51,10 @@ namespace MessageBusFun.Core
             Channels.Add(_channelFactory.CreateWithProvider(name: name, provider: provider));
         }
 
-        protected void ThrowWhenProviderExistsWithDifferentChannel(string name, IProvider provider)
+        protected bool ProviderDoesNotExistForDifferentChannel(string name, IProvider provider)
         {
             var existingChannel = ChannelForProvider(provider);
-            if (existingChannel != null && existingChannel.Name != name)
-            {
-                throw new InvalidOperationException("The same provider cannot be associated with multiple channels");
-            }
+            return existingChannel == null || existingChannel.Name == name;
         }
 
         public IChannel ChannelForProvider(IProvider provider)
@@ -64,9 +62,9 @@ namespace MessageBusFun.Core
             return Channels.SingleOrDefault(x => x.IsProviderRegistered(provider));
         }
 
-        public IEnumerable<IProvider> ProvidersForChannelWithName(string name)
+        public IChannel ChannelWithName(string channelName)
         {
-            return ChannelNames[name].Providers.AsEnumerable();
+            return Channels.SingleOrDefault(x => x.Name == channelName);
         }
 
         public IEnumerable<string> Names
