@@ -6,6 +6,6 @@ namespace MessageBusFun.Core
     {
         IEnumerable<string> Channels { get; }
 
-        void RegisterProvider(string channelName, IProvider provider);
+        void RegisterProvider(IProvider provider, string channelName);
     }
 }

@@ -15,7 +15,7 @@ namespace MessageBusFun.Core
 
         public IEnumerable<string> Channels { get { return _channels.Names(); } }
 
-        public void RegisterProvider(string channelName, IProvider provider)
+        public void RegisterProvider(IProvider provider, string channelName)
         {
             _channels.Add(channelName, provider);
         }

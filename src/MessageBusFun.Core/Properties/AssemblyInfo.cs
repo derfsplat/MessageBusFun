@@ -38,4 +38,3 @@ using System.Runtime.InteropServices;
 // Unit Test assemblies
 [assembly: InternalsVisibleTo("MessageBusFun.Core.Tests"),
            InternalsVisibleTo("DynamicProxyGenAssembly2")]
-           
