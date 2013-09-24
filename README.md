@@ -13,16 +13,16 @@ design philosophy and essential concepts to a trainee. The solution should there
 example illustrating each fundamental concept or mechanism that you consider to be important.
 
 ###Submission format.
-Submissions should take the form of a zipped solution; any Visual Studio
-version from 2005 on is permissible. As far as possible, once extracted from the zip file, the
+Submissions should take the form of a pull request or a zipped solution; any Visual Studio
+version from 2010 on is permissible. As far as possible, the
 solution should be useable with no special preparation of the development environment. Any
-instructions or usage notes should be in a document or text file in the root folder of the solution.
+instructions or usage notes should be in added to the beginning of this readme.
 
 ###Language, framework, and dependencies.
 The solution should be authored in C# and target the .Net Framework version 3.5 or above.
 References should be limited to either those available by default (given Visual Studio Ultimate
 Edition), or to commonly known additions to the development environment that can be included
-as binaries with the solution itself.
+via NuGet.
 
 ###Target Operating Environment
 Assume that the component is to be delivered in binary form to multiple other development
